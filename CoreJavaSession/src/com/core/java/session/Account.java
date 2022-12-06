@@ -1,7 +1,7 @@
 package com.core.java.session;
 
 public abstract class Account {
-//hello this is changed version...
+
 	private int balance;
 	public static final int interestRate = 10;
 
