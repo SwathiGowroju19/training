@@ -1,0 +1,21 @@
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+           int units, charge=0;
+           Scanner sc=new Scanner(System.in);
+           System.out.println("enter units");
+           units=sc.nextInt();
+        //  System.out.println(units);
+        if(units<=100)
+          charge=charge+2;
+        else if(units>=101 && units<=200)
+           charge=charge+3.5;
+        else if(units>=201 && units<=300)
+           charge=charge+4;
+        else if(units>=301 && units<=500)
+           charge=charge+6;  
+        else if(units>=501)
+           charge=charge+8;
+         
+    }
+}
