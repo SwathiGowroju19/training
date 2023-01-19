@@ -13,13 +13,13 @@ public class Animal{
 
 	}
 
-	// Overloaded Constructor
+	// Overloaded Constructor 1
 	public Animal(String name) {
 		this.name = name;
 	}
 
 	/** super class constructor **/
-	// Overloaded Constructor
+	// Overloaded Constructor 2
 	public Animal(int age) {
 		this.age = age;
 	}
@@ -30,6 +30,11 @@ public class Animal{
 
 	/* method overloading */
 	public void animalSound(int age) {
+		System.out.println("The animal makes a sound, age is " + age);
+	}
+	
+	/* method overloading */
+	public void animalSound(String name, int age) {
 		System.out.println("The animal makes a sound, age is " + age);
 	}
 

@@ -1,13 +1,13 @@
-package com.training.springboot.rest.service;
+package com.training.rest.mongodb.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.training.springboot.rest.model.Employee;
-import com.training.springboot.rest.repository.EmployeeRepository;
-import com.training.springboot.rest.service.exception.EmployeeNotFoundException;
+import com.training.rest.mongodb.model.Employee;
+import com.training.rest.mongodb.repository.EmployeeRepository;
+import com.training.rest.mongodb.service.exception.EmployeeNotFoundException;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -26,8 +26,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public Employee getEmployee(Long id) {
+	public Employee getEmployee(String id) {
 		return employeeRepository.findById(id).orElseThrow(() -> new EmployeeNotFoundException(id));
+
 	}
 
 	@Override
@@ -36,7 +37,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(String id) {
 		employeeRepository.deleteById(id);
 	}
 

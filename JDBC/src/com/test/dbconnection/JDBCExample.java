@@ -5,25 +5,28 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class JDBCExample {
 
-	private static final String SQL_INSERT = "INSERT INTO EMP (PersonID, LastName, FirstName, Address, City)"
+	private static final String SQL_INSERT = "INSERT INTO EMPLOYEE (PersonID, LastName, FirstName, Address, City)"
 			+ "VALUES(?, ?, ?, ?, ?);";
 
 	public static void main(String[] args) {
+		
+		Connection con = null;
 		try {
 			// Driver changes based on the database used Oracle/MySQL
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sample", "root", "@database4ME");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sample", "root", "@database4ME");
 			// here sample is database name, root is username and password
 
 			// ************ Using Statement *********//
 			Statement stmt = con.createStatement();
 
-			ResultSet rs = stmt.executeQuery("select * from emp");
+			ResultSet rs = stmt.executeQuery("select * from employee");
 			while (rs.next()) {
 				System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
 			}
@@ -51,11 +54,16 @@ public class JDBCExample {
 				System.out.println(callResult.getInt(1) + "  " + callResult.getString(2) + "  " + callResult.getString(3));
 			}
 
-			// at last close the connection
-			con.close();
 
 		} catch (Exception e) {
 			System.out.println(e);
+		} finally {
+			// at last close the connection
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

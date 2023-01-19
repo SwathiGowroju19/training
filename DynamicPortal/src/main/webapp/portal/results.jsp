@@ -20,7 +20,7 @@
 			<div class="banner">
 				<h2>Best Engineering College</h2>
 			</div>
-			<div class="examinations">
+			<div class="results">
 				<h2>Results</h2>
 
 				<form id="form">
@@ -34,8 +34,8 @@
 					</br> <label class="name">Name: N. Pratik</label>
 				</div>
 
-				<table class="examinationstable">
-					<thead>
+				<table>
+					<thead class="resultheader">
 						<tr>
 							<td>Subject</td>
 							<td>Score</td>
